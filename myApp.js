@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
   console.log(req.method+" "+req.path+" - "+ req.ip);
   next();
 }
-)
+);
 
 
 
@@ -34,6 +34,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 }
 );
+
+// Chain Middleware to Create a Time Server
+app.get('/now', function(req, res, next) {
+  req.time = new Date().toString();  
+  next();
+}, function(req, res) {
+  res.send({time: req.time});
+});
 
 // Serve JSON on a Specific Route
 app.get("/json", function (req, res) {
