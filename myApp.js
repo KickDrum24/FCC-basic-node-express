@@ -21,6 +21,8 @@ app.use(function(req, res, next) {
   next();
 }
 );
+// Get Route Parameter Input from the Client
+
 
 
 
@@ -43,6 +45,11 @@ app.get('/now', function(req, res, next) {
   res.send({time: req.time});
 });
 
+// Get Route Parameter Input from the Client
+app.get("/:word/echo", function (req, res) {
+  res.json({echo: req.params.word});
+}
+);
 // Serve JSON on a Specific Route
 app.get("/json", function (req, res) {
   (process.env.MESSAGE_STYLE === "uppercase" ? res.json({ "message": "HELLO JSON" }) : res.json({ "message": "Hello json" }))
