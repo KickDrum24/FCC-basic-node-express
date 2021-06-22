@@ -21,10 +21,11 @@ app.use(function(req, res, next) {
   next();
 }
 );
-// Get Route Parameter Input from the Client
-
-
-
+// Get Query Parameter Input from the Client
+app.get("/name", function (req, res) {
+  res.json({ name: req.query});
+}
+);
 
 
 
