@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 );
 // Get Query Parameter Input from the Client
 app.get("/name", function (req, res) {
-  res.json({ name: req.query});
+  res.json({ name: req.query.first+" "+req.query.last});
 }
 );
 
