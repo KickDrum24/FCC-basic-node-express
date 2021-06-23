@@ -30,7 +30,10 @@ app.get("/name", function (req, res) {
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
-
+// Get Data from POST Requests
+app.post("/name", function(req, res) {
+  res.json({ name: req.body.first+" "+req.body.last})
+});
 
 app.use('/public', express.static(__dirname + '/public'));
 
