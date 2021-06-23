@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 //Use the .env file
 require('dotenv').config();
-
+var bodyParser = require('body-parser');
 
 
 
@@ -26,7 +26,9 @@ app.get("/name", function (req, res) {
   res.json({ name: req.query.first+" "+req.query.last});
 }
 );
-
+// Use body-parser to Parse POST Requests
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 
 
